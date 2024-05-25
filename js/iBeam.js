@@ -483,9 +483,9 @@ function calcularSoma() {
         `O L que está sendo usado é ${L} centímeros ou ${L / 100} metros`
     );
 
-    var acaoPermanente = g * 0.5;
-    var acaoQuasePermanente = (g + 0.3 * q) * 0.5; //=((C134+C135)+0,3*4)*0,5
-    var acaoRara = (g + q) * 0.5; // =(C134+C135+4)*0,5
+    var acaoPermanente = g;
+    var acaoQuasePermanente = (g + 0.3 * q) ; //=((C134+C135)+0,3*4)*0,5
+    var acaoRara = (g + q) ; // =(C134+C135+4)*0,5
     console.log(`acaoQuasePermanente: ${acaoQuasePermanente}`);
 
     var Mmax_acao_permanente = (acaoPermanente * (L / 100) ** 2) / 8;
@@ -522,11 +522,11 @@ function calcularSoma() {
     console.log(`pIM_acao_quase_permanente: ${pIM_acao_quase_permanente}`);
 
     var a_acao_permanenteMetros =
-        (pIM_acao_permanente * (L / 100) ** 4 * 5) / (384 * 2100000);
+        (pIM_acao_permanente * (L / 100) ** 4 * 5) / (384 * Ecs * 1000);
     var a_acao_quase_permanenteMetros =
-        (pIM_acao_quase_permanente * (L / 100) ** 4 * 5) / (384 * 2100000);
+        (pIM_acao_quase_permanente * (L / 100) ** 4 * 5) / (384 * Ecs * 1000);
     var a_acao_raraMetros =
-        (pIM_acao_rara * (L / 100) ** 4 * 5) / (384 * 2100000);
+        (pIM_acao_rara * (L / 100) ** 4 * 5) / (384 * Ecs * 1000);
     console.log(
         `a_acao_quase_permanenteMetros: ${a_acao_quase_permanenteMetros}`
     );
