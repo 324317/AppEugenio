@@ -417,18 +417,19 @@ function calcularSoma() {
             100000000;
     }
     console.log('inercia2: ', inercia2);
+    var mat = ((g + q * 0.4) / (g + q)) * Mk; // g e q sao input's
     var tensaoDeTracao = ((mat / inercia2) * ae * (d - xii / 100)) / 1000;
     console.log('tensao de tracao: ', tensaoDeTracao);
     //---------------
     const dataToSend = {
-        width: 30,
-        height: 45,
-        agressClass: 2,
-        quantBar: 10,
-        dBar: 1.25,
-        dAgreg: 2.5,
-        dEstribo: 0.5,
-        av: 2
+        width: bw,
+        height: h,
+        agressClass: cobrimento,
+        quantBar: numeroBarras,
+        dBar: bitolaUtilizada,
+        dAgreg: diametroAgregado,
+        dEstribo: bitolaEstribo,
+        av: av,
     };
 
     // Call the fetchData function and handle the Promise
@@ -462,7 +463,6 @@ function calcularSoma() {
     console.log('inercia: ', inercia);
     // var q = 10; // g e q sao input's
     // var g = 15; // g e q sao input's
-    var mat = ((g + q * 0.4) / (g + q)) * Mk; // g e q sao input's
     console.log('mat: ', mat);
     var mr = (1.5 * inercia * Fctm * 100) / (h * 0.5);
     console.log('mr: ', mr);
