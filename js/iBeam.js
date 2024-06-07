@@ -534,7 +534,7 @@ function calcularSoma() {
     var a_acao_permanenteCentimetro = a_acao_permanenteMetros * 100;
     var a_acao_quase_permanenteCentimetro =
         a_acao_quase_permanenteMetros * 100;
-    var a_acao_raraCentimetro = a_acao_ra;
+    var a_acao_raraCentimetro = a_acao_raraMetros;
     console.log(
         `a_acao_permanenteCentimetro: ${a_acao_permanenteCentimetro} ,a_acao_quase_permanenteCentimetro: ${a_acao_quase_permanenteCentimetro} ,a_acao_raraCentimetro: ${a_acao_raraCentimetro}`
     );
