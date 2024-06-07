@@ -568,6 +568,15 @@ function calcularSoma() {
         dominio = `O valor de x não passou nos testes, sendo x igual à ${x}`;
     }
     console.log(dominio)
+
+    var wk ;
+    if(wk1<wk2) {
+        wk = wk1;
+        console.log(`wk1 é ${wk1}, sendo ele menor que wk2 que é ${wk2}. Logo wk é ${wk1}.`)
+    } else {
+        wk = wk2;
+        console.log(`wk2 é ${wk2}, sendo ele menor que wk1 que é ${wk1}. Logo wk é ${wk2}.`)
+    }
 }
 
 /*
