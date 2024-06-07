@@ -429,7 +429,7 @@ function calcularSoma() {
         dBar: bitolaUtilizada,
         dAgreg: diametroAgregado,
         dEstribo: bitolaEstribo,
-        av: av,
+        av: avMin,
     };
 
     // Call the fetchData function and handle the Promise
