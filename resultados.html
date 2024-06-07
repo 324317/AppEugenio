@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela HTML</title>
     <style>
         table {
@@ -8,7 +10,7 @@
             width: 50%; /* Defina a largura da tabela desejada */
             margin-left: auto;
             margin-right: auto;
-            margin-top: 30 px;
+            margin-top: 30px;
             margin-bottom: 30px;
         }
         table td {
@@ -17,47 +19,56 @@
             text-align: center;
             vertical-align: top;
         }
+
+        #header-centralizado {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vh; /* Altura total da viewport */
+            background-color: #f0f0f0; /* Cor de fundo opcional */
+            text-align: center;
+        }
+
+        #header-centralizado h1 {
+            font-size: 2em;
+            color: #333; /* Cor do texto */
+        }
     </style>
 </head>
-<body>      
-      <table>
-        <caption>Verificação do estado limite de serviço</caption>
+<body>  
+    <header id="header-centralizado">
+        <h1>AppCalc</h1>
+    </header>    
+    <table>
+        <!-- <caption>Resultados</caption> -->
         <tr>
-          <td >
-            Flexa da viga <br>
-          </td>
-          <td colspan="2">
-            flexa máxima deferida no tempo<br>
-          </td>
+          <td colspan="2">Resultados</td>
+          <!-- <td colspan="2">flexa máxima deferida no tempo</td> -->
         </tr>
-        
         <tr>
-          <td>
-            Fissuração da Viga
-         </td>
-          <td colspan="2">
-            Fissuração máxima permitida
-          </td>
+            <td>Domínio da viga</td>
+            <td colspan="1">...</td>
         </tr>
-
         <tr>
-          <td colspan="3">
-            Verificação do estado limite último<br>
-          </td>
+            <td>Domínio ideal para a viga</td>
+            <td colspan="1">...</td>
         </tr>
-
         <tr>
-            <td >
-                <button type="button">DET</button>
-            </td>
-            <td >
-                
-            </td>
-            <td >
-                <button type="button">RELATÓRIO</button>
-            </td>
+          <td>Flexa da Viga</td>
+          <td colspan="1">...</td>
         </tr>
-       </table>
-      
+        <tr>
+            <td>Fissuração da Viga</td>
+            <td colspan="1">...</td>
+        </tr>
+        <tr>
+            <td colspan="2">Verificação do estado limite último</td>
+        </tr>
+        <tr>
+            <td colspan="1"><button type="button">DET</button></td>
+            <!-- <td></td> -->
+            <td><button type="button">RELATÓRIO</button></td>
+        </tr>
+    </table>
 </body>
 </html>

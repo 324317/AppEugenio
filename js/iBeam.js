@@ -539,7 +539,10 @@ function calcularSoma() {
         `a_acao_permanenteCentimetro: ${a_acao_permanenteCentimetro} ,a_acao_quase_permanenteCentimetro: ${a_acao_quase_permanenteCentimetro} ,a_acao_raraCentimetro: ${a_acao_raraCentimetro}`
     );
 
-    // var ai = a_acao_raraCentimetro - a_acao_permanenteCentimetro;
+    var ai = a_acao_raraCentimetro - a_acao_permanenteCentimetro;
+    console.log(
+        `ai =  ${ai} `
+    );
 
     var amax = L / 250;
     console.log('amax: ', amax);
@@ -555,6 +558,16 @@ function calcularSoma() {
     console.log('af: ', af);
     var aflu = a_acao_quase_permanenteCentimetro * (1 + af);
     console.log('aflu: ', aflu);
+
+    var dominio; 
+    if (x > d * 0.259) {
+        dominio = `domínio 3, sendo x = ${x} , qué é maior que d * 0.259 = ${d * 0.259}`
+    } else if (x > d * 0.7709) {
+        dominio = `domínio 4, sendo x = ${x} , qué é maior que d * 0.7709 = ${d * 0.7709}`
+    } else {
+        dominio = `O valor de x não passou nos testes, sendo x igual à ${x}`;
+    }
+    console.log(dominio)
 }
 
 /*
