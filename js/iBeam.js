@@ -1,6 +1,10 @@
 let acri; // Declare acri outside the fetch request
 let imagePath;
 
+document.getElementById('calcula').addEventListener('click', function() {
+    window.location.href = 'resultados.html';
+});
+
 function fetchData(dataToSend) {
     const apiUrl = 'http://localhost:5000/calculate';
     const requestOptions = {
@@ -337,7 +341,9 @@ function calcularSoma() {
 
     //SeçãoDupla
     var x_045d = 0.45 * d;
+    localStorage.setItem('x_045d', x_045d);
     console.log('x_045d: ', x_045d);
+    
     var MdlimiteX045d =
         (0.68 * x_045d * d - 0.272 * x_045d * x_045d) * Fcd * bw;
     console.log('MdlimiteX045d: ', MdlimiteX045d);
@@ -378,7 +384,9 @@ function calcularSoma() {
     if (ai < 1) {
         ai = 1;
     }
+    localStorage.setItem('ai',ai);
     console.log('ai: ', ai);
+
     var Ecs = 0.85 * Eci;
     console.log('Ecs: ', Ecs);
     var Esi = 210000;
@@ -556,8 +564,9 @@ function calcularSoma() {
     // console.log("tensao de tracao: ", tensaoDeTracao);
     var af = (einf - e0) / (1 + 50 * plinha);
     console.log('af: ', af);
-    var aflu = a_acao_quase_permanenteCentimetro * (1 + af);
-    console.log('aflu: ', aflu);
+    // var aflu = a_acao_quase_permanenteCentimetro * (1 + af);
+    var aflu = 1.46;
+    console.log('aflu (não sera calculado,assume o 1.46): ', aflu);
 
     var dominio; 
     if (x > d * 0.259) {
@@ -567,6 +576,7 @@ function calcularSoma() {
     } else {
         dominio = `O valor de x não passou nos testes, sendo x igual à ${x}`;
     }
+    localStorage.setItem('dominio', dominio);
     console.log(dominio)
 
     var wk ;
@@ -577,7 +587,11 @@ function calcularSoma() {
         wk = wk2;
         console.log(`wk2 é ${wk2}, sendo ele menor que wk1 que é ${wk1}. Logo wk é ${wk2}.`)
     }
+    localStorage.setItem('wk',wk);
 }
+
+localStorage.setItem('dominio', dominio);
+localStorage.setItem('wk');
 
 /*
 git add .

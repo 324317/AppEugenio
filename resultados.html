@@ -47,19 +47,19 @@
         </tr>
         <tr>
             <td>Domínio da viga</td>
-            <td colspan="1">...</td>
+            <td colspan="1" id ="domínio"></td>
         </tr>
         <tr>
             <td>Domínio ideal para a viga</td>
-            <td colspan="1">...</td>
+            <td colspan="1" id ="x_045d">...</td>
         </tr>
         <tr>
           <td>Flexa da Viga</td>
-          <td colspan="1">...</td>
+          <td colspan="1" id ="ai">...</td>
         </tr>
         <tr>
             <td>Fissuração da Viga</td>
-            <td colspan="1">...</td>
+            <td colspan="1" id ="wk">...</td>
         </tr>
         <tr>
             <td colspan="2">Verificação do estado limite último</td>
@@ -67,8 +67,49 @@
         <tr>
             <td colspan="1"><button type="button">DET</button></td>
             <!-- <td></td> -->
-            <td><button type="button">RELATÓRIO</button></td>
+            <td><button type="button" id="relatorio">RELATÓRIO</button></td>
         </tr>
     </table>
 </body>
 </html>
+<script>
+        document.getElementById('relatorio').addEventListener('click', function() {
+        window.location.href = 'relatorio.html';
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            var dominioElement = document.getElementById('domínio');
+            if (dominioElement) {
+                dominioElement.innerText = localStorage.getItem('dominio');
+                console.log('Elemento com ID "domínio" encontrado e texto atualizado.');
+            } else {
+                console.error('Elemento com ID "domínio" não encontrado.');
+            }
+
+            var x_045dElement = document.getElementById('x_045d');
+            if (x_045dElement) {
+                x_045dElement.innerText = localStorage.getItem('x_045d');
+                console.log('Elemento com ID "x_045d" encontrado e texto atualizado.');
+            } else {
+                console.error('Elemento com ID "x_045d" não encontrado.');
+            }
+
+            var aiElement = document.getElementById('ai');
+            if (aiElement) {
+                aiElement.innerText = localStorage.getItem('ai');
+                console.log('Elemento com ID "ai" encontrado e texto atualizado.');
+            } else {
+                console.error('Elemento com ID "si" não encontrado.');
+            }
+
+            var wkElement = document.getElementById('wk');
+            if (wkElement) {
+                wkElement.innerText = localStorage.getItem('wk');
+                console.log('Elemento com ID "wk" encontrado e texto atualizado.');
+            } else {
+                console.error('Elemento com ID "wk" não encontrado.');
+            }
+        });
+
+</script>
