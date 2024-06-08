@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
     <title>Tabela HTML</title>
     <style>
         table {
@@ -8,7 +8,7 @@
             width: 50%; /* Defina a largura da tabela desejada */
             margin-left: auto;
             margin-right: auto;
-            margin-top: 30 px;
+            margin-top: 3%;
             margin-bottom: 30px;
         }
         table td {
@@ -17,189 +17,125 @@
             text-align: center;
             vertical-align: top;
         }
+
+        #header-centralizado {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vh; /* Altura total da viewport */
+            background-color: #f0f0f0; /* Cor de fundo opcional */
+            text-align: center;
+        }
+
+        #header-centralizado h1 {
+            font-size: 2em;
+            color: #333; /* Cor do texto */
+        }
     </style>
 </head>
 <body>
+    <header id="header-centralizado">
+      <h1>AppCalc</h1>
+    </header>
+
     <table>
-        <caption>Relatório (dar nome?)</caption>
+        <caption></caption>
         <tr>
           <td colspan="2">
-            Classe de Agressividade Ambiental II (c=?)<br>
-            Concreto Classe C30<br>
-            Brita 2 (dmáx,agregado = 25mm)<br>
-            Aço CA-50 para armadura longitudinal<br> 
-            Diâmetro Inicial (estimado) : fit = 5mm<br>
-            Viga com Seção 20 cm x 45 cm <br>
-            d = h - (c+ϕt+ϕ/2) <br>
-            Pilares com seção 20cm x 20 cm<br> 
-            Carga acidental : q = 1,75 KN/m<br>
-            Carga permanente : g = 18,25 KN/m<br>
-          </td>
-          <td>
-            h:<br>
-            bw:<br>
-            cobrimento:<br>
-            bitolaUtilizada:<br>
-            bitolaEstribo:<br>
-            Mk:<br>
-            Vk:<br>
-            Fcd:<br>
+            Resultados
           </td>
         </tr>
+
         <tr>
           <td>
-            Cálculo do Md<br>
-            Cálculo do d<br>
-         </td>
-          <td>
-            Cálculo do Fck<br>
-            Md (KN/m)<br>
-            Fcd (KN/m²)<br>
-            d (m)<br>
-            Fyd_Long (KN/cm²)<br>
+            Momento Fletor
           </td>
           <td>
-            Cálculo do Fyd<br>
+            ...
           </td>
         </tr>
+
         <tr>
           <td>
-            Cálculo do X<br>
-            Cálculo do Y<br>
-            Cálculo do As<br>
+            Armadura Longitudinal
           </td>
           <td>
-            xMais<br>
-            xMenos<br>
-            zMais<br>
-            zMenos<br>
-          </td>
-          <td>
-            Escolha do X desejado comparando com o d<br>
-            areaAço (cm²)<br>
+            ...
           </td>
         </tr>
+
         <tr>
-          <td colspan="2">
-            areaAçoMin<br>
-            areaAçoBitola<br>
-            numeroBarras<br>
+          <td>
+            Área de aço calculada 
           </td>
           <td>
-            Asef<br>
+            ...
           </td>
         </tr>
+
         <tr>
-          <td colspan="3">Verificar de x > 0.45d </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            Se sim armadura dupla<br><br>
-            Cálculo de As1 <br>
-            Cálculo de As2 <br>
-            Cálculo de As <br>
-            Cálculo de d´ <br>
+          <td>
+            Área de aço efetiva 
           </td>
           <td>
-            Se não armadura simples<br><br>
-            Cálculo de Vsd <br>
-            Cálculo de pmin <br>
-            Vsd:  <br>
-            Fctm: <br>
-            Fywk:  <br>
-            roMin: <br>
-            Cálculo do Fctm <br>
-            Cálculo da área do bitola do estribo <br>
+            ...
           </td>
         </tr>
+
         <tr>
-          <td colspan="2"></td>
           <td>
-            Cálculo do Vrd2 <br>
-            Cálculo do Vc <br>
-            Vrd2: <br>
-            Vc: <br>
-            Vsw: <br>
-            As_s: <br>
-            As_sMin: <br>
-            
-            <br>Cálculo da As/s <br>
-            Caĺculo da As/s mín <br>
+            Esforço cortante 
+          </td>
+          <td>
+            ...
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Força Cortante Resistente de Cálculo 
+          </td>
+          <td>
+            ...
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Armadura Transversal 
+          </td>
+          <td>
+            ...
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Flexa Imdediata 
+          </td>
+          <td>
+            ...
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Flexa diferida no tempo  
+          </td>
+          <td>
+            ...
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Fissuração 
+          </td>
+          <td>
+            ...
           </td>
         </tr>
       </table>
-
-      
-      <table>
-        <caption>Cálculos para o detalhamento da viga</caption>
-        <tr>
-          <td >
-            Cálculo Ah <br>
-          </td>
-          <td>
-            Cálculo do Ah mín <br>
-          </td>
-          <td>
-            Cálculo do Av <br>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            ah<br>
-            ahMin<br>
-            avMin<br>
-         </td>
-          <td colspan="2">
-            numEstriboPorMetro<br>
-            area de aço do bitola transversal: <br>
-            espaçamentoEstribos: <br>
-            espaçamentoMaxEstribos: <br>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Cálculo nº de estribos / metro<br>
-          </td>
-          <td>
-            Cálculo do espaçamento estribos<br>
-          </td>
-          <td>
-            Cálculo do espaçamento máxmio dos estribos<br>
-          </td>
-        </tr>
-
-        <tr>
-          <td colspan="3">
-            Verificação do ELS<br>
-          </td>
-        </tr>
-
-        <tr>
-          <td >
-            Cálculo da a1, a2 2 a3 para encontrar Xii 
-          </td>
-          <td >
-            Cálculo para Xii
-          </td>
-          <td >
-            Cálculo para Lii 
-          </td>
-        </tr>
-
-
-        <tr>
-          <td >
-            Mostrar área de concreto envolvida pela barra 
-          </td>
-          <td >
-            Cálculo do Pri
-          </td>
-          <td >
-            Cálculo do wk1 , wk2  
-          </td>
-        </tr>
-       </table>
       
 </body>
 </html>
