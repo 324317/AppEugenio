@@ -65,7 +65,7 @@
             <td colspan="2">Verificação do estado limite último</td>
         </tr>
         <tr>
-            <td colspan="1"><button type="button">DET</button></td>
+            <td colspan="1"><button type="button" id="DET">DET</button></td>
             <!-- <td></td> -->
             <td><button type="button" id="relatorio">RELATÓRIO</button></td>
         </tr>
@@ -75,6 +75,10 @@
 <script>
         document.getElementById('relatorio').addEventListener('click', function() {
         window.location.href = 'relatorio.html';
+        });
+
+        document.getElementById('DET').addEventListener('click', function() {
+        window.location.href = 'tela_imagem.html';
         });
 
         document.addEventListener('DOMContentLoaded', function() {
