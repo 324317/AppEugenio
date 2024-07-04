@@ -1,141 +1,105 @@
 <!DOCTYPE html>
-<html>
-<head> 
-    <title>Tabela HTML</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 50%; /* Defina a largura da tabela desejada */
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 3%;
-            margin-bottom: 30px;
-        }
-        table td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-            vertical-align: top;
-        }
-
-        #header-centralizado {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 20vh; /* Altura total da viewport */
-            background-color: #f0f0f0; /* Cor de fundo opcional */
-            text-align: center;
-        }
-
-        #header-centralizado h1 {
-            font-size: 2em;
-            color: #333; /* Cor do texto */
-        }
-    </style>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="css/relatorio.css">
 </head>
 <body>
-    <header id="header-centralizado">
-      <h1>AppCalc</h1>
+    <header>
+        <h1>AppCalc</h1>
     </header>
+    <main>
+        <div class="content">
+            <table>
+                <caption></caption>
+                <tr>
+                    <td colspan="2">Resultados</td>
+                </tr>
+                <tr>
+                    <td>Momento Fletor</td>
+                    <td id="Md">...</td>
+                </tr>
+                <tr>
+                    <td>Armadura Longitudinal</td>
+                    <td id="nSimboloFiBitola">...</td>
+                </tr>
+                <tr>
+                    <td>Área de Aço Calculada</td>
+                    <td id="As">...</td>
+                </tr>
+                <tr>
+                  <td>
+                    Área de aço efetiva 
+                  </td>
+                  <td id="Asef"></td>
+                </tr>
+                <td>Esforço Cortante</td>
+                  <td id="Vsd">...</td>
+                </tr>
+                <tr>
+                    <td>Força Cortante Resistente de Cálculo</td>
+                    <td id="Vrd2">...</td>
+                </tr>
+                <tr>
+                    <td>Armadura Transversal</td>
+                    <td id="detalhamentoFinalDosEstribos">...</td>
+                </tr>
+                <tr>
+                    <td>Flexa Imediata (cm)</td>
+                    <td id="ai">...</td>
+                </tr>
+                <tr>
+                    <td>Flexa Diferida no Tempo (cm)</td>
+                    <td id="aflu">...</td>
+                </tr>
+                <tr>
+                    <td>Fissuração</td>
+                    <td id="wk">...</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; NarutoCearence</p>
+        <p>Todos os direitos reservados</p>
+        <p><small>Desenvolvido por: Euclides da Cunha</small></p>
+    </footer>
+    <script>
+        // Function to update the table values
+        function updateContent() {
+            const fields = {
+                Md: 'Md',
+                nSimboloFiBitola: function() {
+                    const n = localStorage.getItem('n') || '...';
+                    const simboloFi = localStorage.getItem('SIMBOLO_FI') || 'φ';
+                    const bitola = localStorage.getItem('bitolautilizada')
+                    return `${n} ${simboloFi} ${bitola}`;
+                },
+                As: 'As',
+                Asef: 'Asef',
+                Vsd: 'Vsd',
+                Vrd2: 'Vrd2',
+                detalhamentoFinalDosEstribos: 'detalhamentoFinalDosEstribos',
+                ai: 'ai',
+                aflu: 'aflu',
+                wk: 'wk'
+            };
 
-    <table>
-        <caption></caption>
-        <tr>
-          <td colspan="2">
-            Resultados
-          </td>
-        </tr>
+            Object.keys(fields).forEach(field => {
+                if (typeof fields[field] === 'function') {
+                    document.getElementById(field).innerText = fields[field]();
+                } else {
+                    const value = localStorage.getItem(fields[field]);
+                    if (value) {
+                        document.getElementById(fields[field]).innerText = value;
+                    }
+                }
+            });
+        }
 
-        <tr>
-          <td>
-            Momento Fletor
-          </td>
-          <td>
-            ...
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Armadura Longitudinal
-          </td>
-          <td>
-            ...
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Área de aço calculada 
-          </td>
-          <td>
-            ...
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Área de aço efetiva 
-          </td>
-          <td>
-            ...
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Esforço cortante 
-          </td>
-          <td>
-            ...
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Força Cortante Resistente de Cálculo 
-          </td>
-          <td>
-            ...
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Armadura Transversal 
-          </td>
-          <td>
-            ...
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Flexa Imdediata 
-          </td>
-          <td>
-            ...
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Flexa diferida no tempo  
-          </td>
-          <td>
-            ...
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Fissuração 
-          </td>
-          <td>
-            ...
-          </td>
-        </tr>
-      </table>
-      
+        window.onload = updateContent;
+    </script>
 </body>
 </html>
