@@ -1,88 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela HTML</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 50%; /* Defina a largura da tabela desejada */
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-        table td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-            vertical-align: top;
-        }
-
-        #header-centralizado {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 20vh; /* Altura total da viewport */
-            background-color: #f0f0f0; /* Cor de fundo opcional */
-            text-align: center;
-        }
-
-        #header-centralizado h1 {
-            font-size: 2em;
-            color: #333; /* Cor do texto */
-        }
-    </style>
+    <link rel="stylesheet" href="css/resultados.css">
 </head>
-<body>  
-    <header id="header-centralizado">
+
+<body>
+    <header>
         <h1>AppCalc</h1>
-    </header>    
-    <table>
-        <!-- <caption>Resultados</caption> -->
-        <tr>
-          <td colspan="2">Resultados</td>
-          <!-- <td colspan="2">flexa máxima deferida no tempo</td> -->
-        </tr>
-        <tr>
-            <td>Domínio da viga</td>
-            <td colspan="1" id ="domínio"></td>
-        </tr>
-        <tr>
-            <td>Domínio ideal para a viga</td>
-            <td colspan="1" id ="x_045d">...</td>
-        </tr>
-        <tr>
-          <td>Flexa da Viga</td>
-          <td colspan="1" id ="ai">...</td>
-        </tr>
-        <tr>
-            <td>Fissuração da Viga</td>
-            <td colspan="1" id ="wk">...</td>
-        </tr>
-        <tr>
-            <td colspan="2">Verificação do estado limite último</td>
-        </tr>
-        <tr>
-            <td colspan="1"><button type="button" id="DET">DET</button></td>
-            <!-- <td></td> -->
-            <td><button type="button" id="relatorio">RELATÓRIO</button></td>
-        </tr>
-    </table>
-</body>
-</html>
-<script>
-        document.getElementById('relatorio').addEventListener('click', function() {
-        window.location.href = 'relatorio.html';
+    </header>
+    
+    <main>
+        <table>
+            <tr>
+                <td colspan="2">Resultados</td>
+            </tr>
+            <tr>
+                <td>Domínio da viga</td>
+                <td colspan="1" id="domínio">...</td>
+            </tr>
+            <tr>
+                <td>Domínio ideal para a viga</td>
+                <td colspan="1" id="x_045d">...</td>
+            </tr>
+            <tr>
+                <td>Flexa da Viga</td>
+                <td colspan="1" id="ai">...</td>
+            </tr>
+            <tr>
+                <td>Fissuração da Viga</td>
+                <td colspan="1" id="wk">...</td>
+            </tr>
+            <tr>
+                <td colspan="2">Verificação do estado limite último</td>
+            </tr>
+            <tr>
+                <td colspan="1"><button type="button" id="DET">DET</button></td>
+                <td><button type="button" id="relatorio">RELATÓRIO</button></td>
+            </tr>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; NarutoCearence</p>
+        <p>Todos os direitos reservados</p>
+        <p><small>Desenvolvido por: Euclides da Cunha</small></p>
+    </footer>
+    
+    <script>
+        document.getElementById('relatorio').addEventListener('click', function () {
+            window.location.href = 'relatorio.html';
         });
 
-        document.getElementById('DET').addEventListener('click', function() {
-        window.location.href = 'tela_imagem.html';
+        document.getElementById('DET').addEventListener('click', function () {
+            window.location.href = 'tela_imagem.html';
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            
+        document.addEventListener('DOMContentLoaded', function () {
             var dominioElement = document.getElementById('domínio');
             if (dominioElement) {
                 dominioElement.innerText = localStorage.getItem('dominio');
@@ -104,7 +81,7 @@
                 aiElement.innerText = localStorage.getItem('ai');
                 console.log('Elemento com ID "ai" encontrado e texto atualizado.');
             } else {
-                console.error('Elemento com ID "si" não encontrado.');
+                console.error('Elemento com ID "ai" não encontrado.');
             }
 
             var wkElement = document.getElementById('wk');
@@ -115,5 +92,6 @@
                 console.error('Elemento com ID "wk" não encontrado.');
             }
         });
-
-</script>
+    </script>
+</body>
+</html>
