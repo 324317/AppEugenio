@@ -64,13 +64,11 @@ function fetchData(dataToSend) {
                         });
                     });
                 } else {
-                    alert('Valores Inválidos');
                     resolve({ success: false });
                 }
             })
             .catch(error => {
                 console.error('Error sending request:', error);
-                alert('Valores Inválidos');
                 resolve({ success: false });
             });
     });
@@ -499,7 +497,6 @@ async function calcularSoma() {
                 console.log('Caminho da imagem testes: ', data.imagePath);
                 console.log('acritestes: ', acri);
             } else {
-                console.error('Error: API call was not successful');
                 alert('Por favor corrija os valores enviados.');
                 return false;
             }

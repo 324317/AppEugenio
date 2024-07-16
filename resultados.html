@@ -38,7 +38,7 @@
                 <td colspan="2">Verificação do estado limite último</td>
             </tr>
             <tr>
-                <td colspan="1"><button type="button" id="DET">DET</button></td>
+                <td colspan="1"><button type="button" id="DET">DETALHAMENTO</button></td>
                 <td><button type="button" id="relatorio">RELATÓRIO</button></td>
             </tr>
         </table>
@@ -59,38 +59,48 @@
             window.location.href = 'tela_imagem.html';
         });
 
+        // Function to format numbers to 2 decimal places
+        function formatToTwoDecimals(value) {
+            return parseFloat(value).toFixed(2);
+        }
+
+        // Function to format scientific notation numbers
+        function formatScientific(value) {
+            if (!isNaN(value)) {
+                return parseFloat(value).toExponential(2);
+            }
+            return value;
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            var dominioElement = document.getElementById('domínio');
-            if (dominioElement) {
-                dominioElement.innerText = localStorage.getItem('dominio');
-                console.log('Elemento com ID "domínio" encontrado e texto atualizado.');
-            } else {
-                console.error('Elemento com ID "domínio" não encontrado.');
-            }
+            var fields = {
+                domínio: 'dominio',
+                x_045d: 'x_045d',
+                ai: 'ai',
+                wk: 'wk'
+            };
 
-            var x_045dElement = document.getElementById('x_045d');
-            if (x_045dElement) {
-                x_045dElement.innerText = localStorage.getItem('x_045d');
-                console.log('Elemento com ID "x_045d" encontrado e texto atualizado.');
-            } else {
-                console.error('Elemento com ID "x_045d" não encontrado.');
-            }
-
-            var aiElement = document.getElementById('ai');
-            if (aiElement) {
-                aiElement.innerText = localStorage.getItem('ai');
-                console.log('Elemento com ID "ai" encontrado e texto atualizado.');
-            } else {
-                console.error('Elemento com ID "ai" não encontrado.');
-            }
-
-            var wkElement = document.getElementById('wk');
-            if (wkElement) {
-                wkElement.innerText = localStorage.getItem('wk');
-                console.log('Elemento com ID "wk" encontrado e texto atualizado.');
-            } else {
-                console.error('Elemento com ID "wk" não encontrado.');
-            }
+            Object.keys(fields).forEach(function(field) {
+                var element = document.getElementById(field);
+                if (element) {
+                    var value = localStorage.getItem(fields[field]);
+                    if (value) {
+                        if (!isNaN(value)) {
+                            if (field === 'wk') {
+                                value = formatScientific(value);
+                            } else {
+                                value = formatToTwoDecimals(value);
+                            }
+                        }
+                        element.innerText = value;
+                    } else {
+                        element.innerText = 'N/A'; // Exibir "N/A" caso o valor não exista
+                    }
+                    console.log(`Elemento com ID "${field}" encontrado e texto atualizado com valor: ${element.innerText}`);
+                } else {
+                    console.error(`Elemento com ID "${field}" não encontrado.`);
+                }
+            });
         });
     </script>
 </body>

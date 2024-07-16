@@ -1,94 +1,154 @@
-/* Reset CSS */
-* {
+/* ibeam.css */
+
+/* General reset and styles */
+body, h1, h2, h3, h4, h5, h6, p, form, input, select, textarea {
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
 }
 
-/* Global styles */
 body {
-    font-family: 'Open Sans', Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distribui o conteúdo verticalmente com espaço entre os elementos */
-    min-height: 100vh;
-}
-
-.container {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+    background-color: #f0f0f0;
 }
 
 header {
-    background-color: #007BFF;
+    background-color: #007bff;
     color: white;
+    padding: 20px 0;
     text-align: center;
-    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 20px; /* Adiciona um espaço abaixo do cabeçalho */
 }
 
-h1 {
-    margin-bottom: 20px;
-    margin-top: 20px; /* Desce o texto do cabeçalho */
-}
-
-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-}
-
-.image-section {
+.form-section {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    gap: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1200px;
 }
 
-.image-section img {
-    max-width: 100%;
-    height: auto;
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1;
 }
 
-form {
-    width: 100%;
-    max-width: 400px; /* Ajuste conforme necessário */
-    padding: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+.section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #e0e0e0;
+    padding: 10px;
     border-radius: 5px;
 }
 
-input, select, .button {
+.input-block {
+    margin-bottom: 15px;
+}
+
+.input-block label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-field,
+.input-field-selected {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px; /* Aumenta o espaço entre os campos */
+    border: 1px solid #ccc;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
+    background-color: #f9f9f9;
+    font-size: 1rem;
 }
 
-label {
-    margin-bottom: 15px; /* Aumenta o espaço entre os labels e os campos */
+.button-container {
+    text-align: center;
+    margin: 20px 0;
 }
 
-#calcula {
-    background-color: #007BFF;
+.button {
+    background-color: #007bff;
     color: white;
     border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    padding: 12px;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 8px;
+    transition: background-color 0.3s;
 }
 
-#calcula:hover {
+.button:hover {
     background-color: #0056b3;
+}
+
+footer {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px 0;
+    color: #666;
+    font-size: 0.875rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer small {
+    display: block;
+    margin-top: 10px;
+    color: #aaa;
+}
+
+/* Scroll indicator */
+#scroll-indicator {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 5px;
+    background-color: #007bff;
+    border-radius: 5px;
+}
+
+/* Additional styles for tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px; /* Increased padding */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
 }
 
 footer {
@@ -96,4 +156,5 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
+    width: 100%;
 }
