@@ -61,6 +61,11 @@
         <p><small>Desenvolvido por: Euclides da Cunha</small></p>
     </footer>
     <script>
+        // Function to format numbers to 2 decimal places
+        function formatToTwoDecimals(value) {
+            return parseFloat(value).toFixed(2);
+        }
+
         // Function to update the image source and table values
         function updateContent() {
             const fields = {
@@ -75,9 +80,12 @@
             };
 
             Object.keys(fields).forEach(field => {
-                const value = localStorage.getItem(field);
-                if (value) {
-                    document.getElementById(fields[field]).innerText = value;
+                let value = localStorage.getItem(field);
+                if (value && !isNaN(value)) {
+                    value = formatToTwoDecimals(value);
+                    document.getElementById(field).innerText = value + (field.includes('Altura') || field.includes('Largura') ? ' cm' : ' mm');
+                } else if (value) {
+                    document.getElementById(field).innerText = value;
                 }
             });
 

@@ -16,7 +16,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Adiciona margem à esquerda da imagem e centraliza */
+    .imagem-viga {
+      text-align: center;
+      margin-top: 120px; /* Centraliza o conteúdo dentro do div */
+    }
 
+    .imagem-viga img {
+      margin-left: auto; /* Adiciona margem à esquerda (auto para centralizar) */
+      margin-right: auto; /* Adiciona margem à direita (auto para centralizar) */
+      display: block; /* Garante que a imagem se comporte como um bloco */
+    }
+  </style>
   <title>AppWeb</title>
 </head>
 
@@ -25,108 +37,124 @@
     <h1>AppCalc</h1>
   </header>
 
-  <section>
-    <img src="images/vigaI.png" alt="botão da viga em I" />
-    <form onsubmit="event.preventDefault(); calcularSoma()">
-      <h2>Especificação da Seção</h2>
+  <section class="form-section">
+    <div class="form-container">
+      <form onsubmit="event.preventDefault(); calcularSoma()">
+        <h2 class="section-title">Especificação da Seção</h2>
 
-      <div class="input-block">
-        <label for="h">h (m)</label><br />
-        <input type="text" id="h" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
-      </div>
+        <div class="input-block">
+          <label for="h">h (m)</label><br />
+          <input type="text" id="h" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
+        </div>
 
-      <div class="input-block">
-        <label for="L">L (m)</label><br />
-        <input type="text" id="L" required placeholder="ex : 90" step="0.0001" class="input-field" />
-      </div>
+        <div class="input-block">
+          <label for="L">L (m)</label><br />
+          <input type="text" id="L" required placeholder="ex : 90" step="0.0001" class="input-field" />
+        </div>
 
-      <div class="input-block">
-        <label for="bw">bw (m)</label><br />
-        <input type="text" id="bw" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
-      </div>
+        <div class="input-block">
+          <label for="bw">bw (m)</label><br />
+          <input type="text" id="bw" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
+        </div>
+        
+        <!-- Adicionando a imagem abaixo dos campos -->
+        <div class = "imagem-viga">
+          <img src="./viga.png" alt="Imagem da Viga 1" />
+        </div>
+      </form>
+    </div>
 
-      <h2>Solicitação</h2>
-      <div class="input-block">
-        <label for="Mk">Mk (KNm)</label><br />
-        <input type="text" id="Mk" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
-      </div>
-      <div class="input-block">
-        <label for="q">q (KN/m)</label><br />
-        <input type="text" id="q" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
-      </div>
-      <div class="input-block">
-        <label for="g">g (KN/m)</label><br />
-        <input type="text" id="g" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
-      </div>
+    <div class="form-container">
+      <form onsubmit="event.preventDefault(); calcularSoma()">
+        <h2 class="section-title">Solicitação</h2>
+        <div class="input-block">
+          <label for="Mk">Mk (KNm)</label><br />
+          <input type="text" id="Mk" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
+        </div>
+        <div class="input-block">
+          <label for="q">q (KN/m)</label><br />
+          <input type="text" id="q" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
+        </div>
+        <div class="input-block">
+          <label for="g">g (KN/m)</label><br />
+          <input type="text" id="g" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
+        </div>
 
-      <div class="input-block">
-        <label for="Vk">Vk (KN)</label><br />
-        <input type="text" id="Vk" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
-      </div>
+        <div class="input-block">
+          <label for="Vk">Vk (KN)</label><br />
+          <input type="text" id="Vk" required placeholder="ex : 17.0800" step="0.0001" class="input-field" />
+        </div>
 
-      <h2>Material</h2>
-      <div class="input-block">
-        <label for="Fck">Concreto</label><br />
-        <select id="Fck" name="#" class="input-field-selected">
-          <option value="20MPa">20MPa</option>
-          <option value="25MPa">25MPa</option>
-          <option value="30MPa">30MPa</option>
-          <option value="40MPa">40MPa</option>
-          <option value="50MPa">50MPa</option>
-        </select>
-      </div>
-      <div class="input-block">
-        <label for="steel">Aço da Longitudinal</label><br />
-        <select id="Fyk_Long" name="#" class="input-field-selected">
-          <option value="CA-50">CA-50</option>
-          <option value="CA-60">CA-60</option>
-        </select>
-      </div>
-      <div class="input-block">
-        <label for="steel">Aço da Transversal</label><br />
-        <select id="Fyk_Trans" name="#" class="input-field-selected">
-          <option value="CA-50">CA-50</option>
-          <option value="CA-60">CA-60</option>
-        </select>
-      </div>
-      <h2>Detalhamento</h2>
-      <div class="input-block">
-        <label for="armLong">Armadura Lontidudinal</label><br />
-        <select id="armLong" name="armLong" class="input-field-selected">
-          <option value="5 φ">5 φ</option>
-          <option value="6,3 φ">6,3 φ</option>
-          <option value="8 φ">8 φ</option>
-          <option value="10 φ">10 φ</option>
-          <option value="12,5 φ">12,5 φ</option>
-          <option value="16 φ">16 φ</option>
-          <option value="20 φ">20 φ</option>
-          <option value="22,5 φ">22,5 φ</option>
-          <option value="25 φ">25 φ</option>
-          <option value="35 φ">35 φ</option>
-        </select>
-      </div>
-      <div class="input-block">
-        <label for="armTrans">Armadura Transversal</label><br />
-        <select id="armTrans" name="armTrans" class="input-field-selected">
-          <option value="5 φ">5 φ</option>
-          <option value="6,3 φ">6,3 φ</option>
-        </select>
-      </div>
+        <h2 class="section-title">Material</h2>
+        <div class="input-block">
+          <label for="Fck">Concreto</label><br />
+          <select id="Fck" name="#" class="input-field-selected">
+            <option value="20MPa">20MPa</option>
+            <option value="25MPa">25MPa</option>
+            <option value="30MPa">30MPa</option>
+            <option value="40MPa">40MPa</option>
+            <option value="50MPa">50MPa</option>
+          </select>
+        </div>
+        <div class="input-block">
+          <label for="steel">Aço da Longitudinal</label><br />
+          <select id="Fyk_Long" name="#" class="input-field-selected">
+            <option value="CA-50">CA-50</option>
+            <option value="CA-60">CA-60</option>
+          </select>
+        </div>
+        <div class="input-block">
+          <label for="steel">Aço da Transversal</label><br />
+          <select id="Fyk_Trans" name="#" class="input-field-selected">
+            <option value="CA-50">CA-50</option>
+            <option value="CA-60">CA-60</option>
+          </select>
+        </div>
+      </form>
+    </div>
 
-      <h2>Classe de Agressividade</h2>
-      <div class="input-block">
-        <select id="classe" name="classe" class="input-field-selected">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-      </div>
-      <button type="submit" id="calcula">Calcular</button>
-    </form>
+    <div class="form-container">
+      <form onsubmit="event.preventDefault(); calcularSoma()">
+        <h2 class="section-title">Detalhamento</h2>
+        <div class="input-block">
+          <label for="armLong">Armadura Longitudinal</label><br />
+          <select id="armLong" name="armLong" class="input-field-selected">
+            <option value="5 φ">5 φ</option>
+            <option value="6,3 φ">6,3 φ</option>
+            <option value="8 φ">8 φ</option>
+            <option value="10 φ">10 φ</option>
+            <option value="12,5 φ">12,5 φ</option>
+            <option value="16 φ">16 φ</option>
+            <option value="20 φ">20 φ</option>
+            <option value="22,5 φ">22,5 φ</option>
+            <option value="25 φ">25 φ</option>
+            <option value="35 φ">35 φ</option>
+          </select>
+        </div>
+        <div class="input-block">
+          <label for="armTrans">Armadura Transversal</label><br />
+          <select id="armTrans" name="armTrans" class="input-field-selected">
+            <option value="5 φ">5 φ</option>
+            <option value="6,3 φ">6,3 φ</option>
+          </select>
+        </div>
+
+        <h2 class="section-title">Classe de Agressividade</h2>
+        <div class="input-block">
+          <select id="classe" name="classe" class="input-field-selected">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+      </form>
+    </div>
   </section>
 
-  <div id="scroll-indicator"></div>
+  <div class="button-container">
+    <button id="calcula" class="button" onclick="calcularSoma()">Calcular</button>
+  </div>
 
   <footer>
     <p>&copy; NarutoCearence</p>
