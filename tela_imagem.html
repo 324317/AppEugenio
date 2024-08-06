@@ -4,58 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela HTML</title>
-    <link rel="stylesheet" href="css/telaimagem.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles to ensure equal height for image and table */
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch; /* Make sure children stretch to the same height */
+        }
+        .content-container .col {
+            flex: 1;
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .table-container, .image-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .table-container {
+            overflow: auto;
+        }
+        .image-container {
+            background-color: white;
+        }
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+            max-height: 100%; /* Ensure image does not exceed container height */
+        }
+        .table {
+            height: 100%;
+            margin: 0;
+            display: table;
+            width: 100%;
+        }
+        .table td, .table th {
+            vertical-align: middle; /* Center content vertically */
+        }
+    </style>
 </head>
 <body>
-    <header>
+    <header class="bg-primary text-white text-center py-3">
         <h1>AppCalc</h1>
     </header>
-    <main>
-        <div class="content">
-            <table>
-                <caption></caption>
-                <tr>
-                    <td colspan="2">Dados de Saída</td>
-                </tr>
-                <tr>
-                    <td>Nome da viga</td>
-                    <td id="NomeDaViga">Viga 1</td>
-                </tr>
-                <tr>
-                    <td>Altura Hw</td>
-                    <td id="AlturaHw">... cm</td>
-                </tr>
-                <tr>
-                    <td>Largura Bw</td>
-                    <td id="LarguraBw">... cm</td>
-                </tr>
-                <tr>
-                    <td>Altura útil</td>
-                    <td id="AlturaUtil">... cm</td>
-                </tr>
-                <tr>
-                    <td>As long</td>
-                    <td id="Aslong">... mm</td>
-                </tr>
-                <tr>
-                    <td>As trans</td>
-                    <td id="AsTrans">... mm</td>
-                </tr>
-                <tr>
-                    <td>Momento Md</td>
-                    <td id="Md">... KN.m</td>
-                </tr>
-                <tr>
-                    <td>Cortante Vsd</td>
-                    <td id="Vsd">... KN</td>
-                </tr>
-            </table>
-            <div class="image-container">
-                <img id="beamImage" src="" alt="Imagem da Viga I">
+    <main class="container my-4">
+        <div class="content-container">
+            <div class="col table-container">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th colspan="2" class="text-center">Dados de Saída</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nome da viga</td>
+                            <td id="NomeDaViga">Viga 1</td>
+                        </tr>
+                        <tr>
+                            <td>Altura Hw</td>
+                            <td id="AlturaHw">... cm</td>
+                        </tr>
+                        <tr>
+                            <td>Largura Bw</td>
+                            <td id="LarguraBw">... cm</td>
+                        </tr>
+                        <tr>
+                            <td>Altura útil</td>
+                            <td id="AlturaUtil">... cm</td>
+                        </tr>
+                        <tr>
+                            <td>As long</td>
+                            <td id="Aslong">... mm</td>
+                        </tr>
+                        <tr>
+                            <td>As trans</td>
+                            <td id="AsTrans">... mm</td>
+                        </tr>
+                        <tr>
+                            <td>Momento Md</td>
+                            <td id="Md">... KN.m</td>
+                        </tr>
+                        <tr>
+                            <td>Cortante Vsd</td>
+                            <td id="Vsd">... KN</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col image-container">
+                <img id="beamImage" src="" alt="Imagem da Viga I" class="img-fluid">
             </div>
         </div>
     </main>
-    <footer>
+    <footer class="bg-primary text-white text-center py-3">
         <p>&copy; NarutoCearence</p>
         <p>Todos os direitos reservados</p>
         <p><small>Desenvolvido por: Euclides da Cunha</small></p>
@@ -83,7 +130,11 @@
                 let value = localStorage.getItem(field);
                 if (value && !isNaN(value)) {
                     value = formatToTwoDecimals(value);
-                    document.getElementById(field).innerText = value + (field.includes('Altura') || field.includes('Largura') ? ' cm' : ' mm');
+                    if (field === 'AlturaHw') {
+                        document.getElementById(field).innerText = value + ' cm'; // Add "cm" to AlturaHw
+                    } else {
+                        document.getElementById(field).innerText = value + (field.includes('Altura') || field.includes('Largura') ? ' cm' : ' mm');
+                    }
                 } else if (value) {
                     document.getElementById(field).innerText = value;
                 }
@@ -97,5 +148,9 @@
 
         window.onload = updateContent;
     </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
