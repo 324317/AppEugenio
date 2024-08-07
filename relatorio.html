@@ -1,72 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados</title>
     <link rel="stylesheet" href="css/relatorio.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS to adjust column widths */
+        .table th, .table td {
+            vertical-align: middle; /* Center content vertically */
+        }
+        .table th {
+            width: 50%; /* Allocate 30% for the label column */
+        }
+        .table td {
+            width:50%; /* Allocate 70% for the result column */
+        }
+    </style>
 </head>
+
 <body>
-    <header>
+    <header class="bg-primary text-white text-center py-3">
         <h1>AppCalc</h1>
     </header>
-    <main>
+
+    <main class="container my-4">
         <div class="content">
-            <table>
-                <caption></caption>
-                <tr>
-                    <td colspan="2">Resultados</td>
-                </tr>
-                <tr>
-                    <td>Momento Fletor</td>
-                    <td id="Md">...</td>
-                </tr>
-                <tr>
-                    <td>Armadura Longitudinal</td>
-                    <td id="nSimboloFiBitola">...</td>
-                </tr>
-                <tr>
-                    <td>Área de Aço Calculada</td>
-                    <td id="As">...</td>
-                </tr>
-                <tr>
-                  <td>
-                    Área de aço efetiva 
-                  </td>
-                  <td id="Asef">...</td>
-                </tr>
-                <tr>
-                    <td>Esforço Cortante</td>
-                    <td id="Vsd">...</td>
-                </tr>
-                <tr>
-                    <td>Força Cortante Resistente de Cálculo</td>
-                    <td id="Vrd2">...</td>
-                </tr>
-                <tr>
-                    <td>Armadura Transversal</td>
-                    <td id="detalhamentoFinalDosEstribos">...</td>
-                </tr>
-                <tr>
-                    <td>Flexa Imediata (cm)</td>
-                    <td id="ai">...</td>
-                </tr>
-                <tr>
-                    <td>Flexa Diferida no Tempo (cm)</td>
-                    <td id="aflu">...</td>
-                </tr>
-                <tr>
-                    <td>Fissuração</td>
-                    <td id="wk">...</td>
-                </tr>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="2" class="text-center">Resultados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Momento Fletor</td>
+                        <td id="Md">...</td>
+                    </tr>
+                    <tr>
+                        <td>Armadura Longitudinal</td>
+                        <td id="nSimboloFiBitola">...</td>
+                    </tr>
+                    <tr>
+                        <td>Área de Aço Calculada</td>
+                        <td id="As">...</td>
+                    </tr>
+                    <tr>
+                        <td>Área de Aço Efetiva</td>
+                        <td id="Asef">...</td>
+                    </tr>
+                    <tr>
+                        <td>Esforço Cortante</td>
+                        <td id="Vsd">...</td>
+                    </tr>
+                    <tr>
+                        <td>Força Cortante Resistente de Cálculo</td>
+                        <td id="Vrd2">...</td>
+                    </tr>
+                    <tr>
+                        <td>Armadura Transversal</td>
+                        <td id="detalhamentoFinalDosEstribos">...</td>
+                    </tr>
+                    <tr>
+                        <td>Flecha Imediata (cm)</td>
+                        <td id="ai">...</td>
+                    </tr>
+                    <tr>
+                        <td>Flecha Diferida no Tempo (cm)</td>
+                        <td id="aflu">...</td>
+                    </tr>
+                    <tr>
+                        <td>Fissuração</td>
+                        <td id="wk">...</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </main>
-    <footer>
+
+    <footer class="bg-primary text-white text-center py-3">
         <p>&copy; NarutoCearence</p>
         <p>Todos os direitos reservados</p>
         <p><small>Desenvolvido por: Euclides da Cunha</small></p>
     </footer>
+
     <script>
         // Function to format numbers with two decimal places
         function formatNumber(value) {
@@ -80,7 +100,7 @@
         function updateContent() {
             const fields = {
                 Md: 'Md',
-                nSimboloFiBitola: function() {
+                nSimboloFiBitola: function () {
                     const n = localStorage.getItem('n') || '...';
                     const simboloFi = localStorage.getItem('SIMBOLO_FI') || 'φ';
                     const bitola = localStorage.getItem('bitolautilizada');
@@ -93,13 +113,7 @@
                 detalhamentoFinalDosEstribos: 'detalhamentoFinalDosEstribos',
                 ai: 'ai',
                 aflu: 'aflu',
-                wk: function() {
-                    const wkValue = localStorage.getItem('wk');
-                    if (wkValue) {
-                        return parseFloat(wkValue).toExponential(2);
-                    }
-                    return '...';
-                }
+                wk: 'wk'
             };
 
             Object.keys(fields).forEach(field => {
@@ -116,5 +130,11 @@
 
         window.onload = updateContent;
     </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>

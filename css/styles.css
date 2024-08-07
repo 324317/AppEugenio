@@ -2,28 +2,86 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: rgba(0, 0, 0, 0.356);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    position: relative;
-}
-
-header {
-    background-color: #007BFF; /* Azul */
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  header {
+    background-color: #007bff;
     color: white;
-    font-size: large;
     text-align: center;
-    padding: 20px;
+    padding: 1rem 0;
+  }
+  
+  .form-section {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .form-container {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 2rem;
+    width: 300px;
+    margin-bottom: 2rem;
+  }
+  
+  .section-title {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .input-block {
+    margin-bottom: 1rem;
+  }
+  
+  .input-field,
+  .input-field-selected {
     width: 100%;
+<<<<<<< HEAD
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .rectangle-container {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  canvas {
+    border: 1px solid #007bff;
+  }
+  
+  .button-container {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  footer {
+    background-color: #007bff;
+=======
     font-weight: bold; /* Texto em negrito */
 }
 .button-image {
@@ -47,10 +105,12 @@ header {
   
 footer {
     background-color: #007BFF; /* Azul */
+>>>>>>> f9915f3f098a4dcd846b7645c0397240478bdc27
     color: white;
     text-align: center;
-    padding: 20px;
-    width: 100%;
-    position: absolute;
+    padding: 1rem 0;
+    position: fixed;
     bottom: 0;
-}
+    width: 100%;
+  }
+  

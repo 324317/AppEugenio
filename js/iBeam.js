@@ -17,7 +17,8 @@ document.getElementById('calcula').addEventListener('click', async function(even
         window.location.href = 'resultados.html';
     }  
 });
-
+// Function to animate the beam
+// Function to animate the beam
 function verifyFields(){
     const requiredFields = ['h', 'L', 'bw', 'Mk', 'q', 'g', 'Vk'];
     let valid = true;
@@ -609,15 +610,13 @@ async function calcularSoma() {
     // console.log("tensao de tracao: ", tensaoDeTracao);
         var af = (einf - e0) / (1 + 50 * plinha);
         console.log('af: ', af);
-    // var aflu = a_acao_quase_permanenteCentimetro * (1 + af);
-        var aflu = 1.46;
-        console.log('aflu (não sera calculado,assume o 1.46): ', aflu);
+        var aflu = a_acao_quase_permanenteCentimetro * (1 + af);
         saveToLocalStorage('aflu', aflu)
         var dominio; 
         if (x > d * 0.259) {
-            dominio = `domínio 3, sendo x = ${x} , qué é maior que d * 0.259 = ${d * 0.259}`
+            dominio = `3`
         } else if (x > d * 0.7709) {
-            dominio = `domínio 4, sendo x = ${x} , qué é maior que d * 0.7709 = ${d * 0.7709}`
+            dominio = `4`
         } else {
             dominio = `O valor de x não passou nos testes, sendo x igual à ${x}`;
         }
@@ -625,13 +624,8 @@ async function calcularSoma() {
         console.log(dominio)
 
         var wk ;
-        if(wk1<wk2) {
-            wk = wk1;
-            console.log(`wk1 é ${wk1}, sendo ele menor que wk2 que é ${wk2}. Logo wk é ${wk1}.`)
-        } else {
-            wk = wk2;
-            console.log(`wk2 é ${wk2}, sendo ele menor que wk1 que é ${wk1}. Logo wk é ${wk2}.`)
-        }
+
+        wk = wk1 * 10;
         saveToLocalStorage('wk',wk);
 
         return true;
@@ -641,8 +635,6 @@ async function calcularSoma() {
         return false;
     }
 }
-
-localStorage.setItem('dominio', dominio);
 
 /*
 git add .

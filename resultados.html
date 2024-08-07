@@ -1,55 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela HTML</title>
     <link rel="stylesheet" href="css/resultados.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
-    <header>
+    <header class="bg-primary text-white text-center py-3">
         <h1>AppCalc</h1>
     </header>
-    
-    <main>
-        <table>
-            <tr>
-                <td colspan="2">Resultados</td>
-            </tr>
-            <tr>
-                <td>Domínio da viga</td>
-                <td colspan="1" id="domínio">...</td>
-            </tr>
-            <tr>
-                <td>Domínio ideal para a viga</td>
-                <td colspan="1" id="x_045d">...</td>
-            </tr>
-            <tr>
-                <td>Flexa da Viga</td>
-                <td colspan="1" id="ai">...</td>
-            </tr>
-            <tr>
-                <td>Fissuração da Viga</td>
-                <td colspan="1" id="wk">...</td>
-            </tr>
-            <tr>
-                <td colspan="2">Verificação do estado limite último</td>
-            </tr>
-            <tr>
-                <td colspan="1"><button type="button" id="DET">DETALHAMENTO</button></td>
-                <td><button type="button" id="relatorio">RELATÓRIO</button></td>
-            </tr>
-        </table>
+
+    <main class="container my-4">
+        <div class="content">
+            <table class="table table-bordered table-hover">
+                <thead style="background-color: #343a40; color: white;">
+                    <tr>
+                        <th colspan="2" class="text-center">Resultados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Domínio da viga</td>
+                        <td id="domínio">...</td>
+                    </tr>
+                    <tr>
+                        <td>Flecha da Viga em cm</td>
+                        <td id="ai">...</td>
+                    </tr>
+                    <tr>
+                        <td>Fissuração da Viga em mm</td>
+                        <td id="wk">...</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="text-center">Verificação do estado limite último</th>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <button type="button" id="DET" class="btn btn-primary btn-block">DETALHAMENTO</button>
+                        </td>
+                        <td class="text-center">
+                            <button type="button" id="relatorio" class="btn btn-primary btn-block">RELATÓRIO</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
 
-    <footer>
+    <footer class="bg-primary text-white text-center py-3">
         <p>&copy; NarutoCearence</p>
         <p>Todos os direitos reservados</p>
         <p><small>Desenvolvido por: Euclides da Cunha</small></p>
     </footer>
-    
+
     <script>
         document.getElementById('relatorio').addEventListener('click', function () {
             window.location.href = 'relatorio.html';
@@ -75,22 +81,17 @@
         document.addEventListener('DOMContentLoaded', function () {
             var fields = {
                 domínio: 'dominio',
-                x_045d: 'x_045d',
                 ai: 'ai',
                 wk: 'wk'
             };
 
-            Object.keys(fields).forEach(function(field) {
+            Object.keys(fields).forEach(function (field) {
                 var element = document.getElementById(field);
                 if (element) {
                     var value = localStorage.getItem(fields[field]);
                     if (value) {
                         if (!isNaN(value)) {
-                            if (field === 'wk') {
-                                value = formatScientific(value);
-                            } else {
-                                value = formatToTwoDecimals(value);
-                            }
+                            value = formatToTwoDecimals(value);    
                         }
                         element.innerText = value;
                     } else {
@@ -103,5 +104,10 @@
             });
         });
     </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
